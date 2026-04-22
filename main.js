@@ -12,6 +12,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectDay = document.getElementById('birth-day');
     const selectHour = document.getElementById('birth-hour');
 
+    // Modal elements
+    const modal = document.getElementById('inquiry-modal');
+    const inquiryToggle = document.getElementById('inquiry-toggle');
+    const closeBtn = document.querySelector('.close');
+
+    inquiryToggle.addEventListener('click', () => {
+        modal.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
     // Populate selects
     const currentYear = new Date().getFullYear();
     for (let i = currentYear; i >= 1930; i--) {

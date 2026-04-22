@@ -54,6 +54,27 @@
             </form>
             <div id="fortune-result" aria-live="polite"></div>
         </main>
+        
+        <footer class="app-footer">
+            <button id="inquiry-toggle" class="inquiry-btn">제휴 문의하기</button>
+            <div id="inquiry-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>제휴 및 서비스 문의</h2>
+                    <form action="https://formspree.io/f/xpznvkgw" method="POST" id="inquiry-form">
+                        <div class="form-group">
+                            <label for="email">이메일 주소</label>
+                            <input type="email" name="email" id="email" placeholder="example@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">문의 내용</label>
+                            <textarea name="message" id="message" rows="5" placeholder="문의하실 내용을 입력해주세요." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">문의 보내기</button>
+                    </form>
+                </div>
+            </div>
+        </footer>
     </div>
     <script src="main.js"></script>
 </body>
