@@ -8,24 +8,60 @@
     --bg-color: #121212;
     --card-bg-color: #1e1e1e;
     --glow-color: rgba(255, 171, 0, 0.7);
+    --input-bg: #121212;
+    --transition-speed: 0.3s;
+}
+
+body.light-mode {
+    --primary-color: #6a1b9a;
+    --secondary-color: #f57c00;
+    --text-color: #333333;
+    --bg-color: #f0f2f5;
+    --card-bg-color: #ffffff;
+    --glow-color: rgba(245, 124, 0, 0.3);
+    --input-bg: #ffffff;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 body {
     font-family: 'Lato', sans-serif;
     color: var(--text-color);
     background-color: var(--bg-color);
-    background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.05" fill-rule="evenodd"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E');
+    background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23888" fill-opacity="0.05" fill-rule="evenodd"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E');
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 1rem;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: var(--card-bg-color);
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
 }
 
 .container {
@@ -34,8 +70,9 @@ body {
     background-color: var(--card-bg-color);
     border-radius: 15px;
     padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--glow-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px var(--glow-color);
     text-align: center;
+    position: relative;
 }
 
 header h1 {
@@ -72,13 +109,12 @@ header p {
 
 input[type="text"],
 input[type="date"] {
-    background-color: var(--bg-color);
+    background-color: var(--input-bg);
     border: 1px solid var(--primary-color);
     border-radius: 8px;
     padding: 0.8rem;
     color: var(--text-color);
     font-size: 1rem;
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 input[type="text"]:focus,
@@ -90,7 +126,7 @@ input[type="date"]:focus {
 
 button[type="submit"] {
     background-color: var(--secondary-color);
-    color: var(--card-bg-color);
+    color: #fff;
     font-family: 'Cinzel', serif;
     font-size: 1.2rem;
     font-weight: bold;
@@ -98,8 +134,11 @@ button[type="submit"] {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+body.light-mode button[type="submit"] {
+    color: #fff;
 }
 
 button[type="submit"]:hover {
@@ -111,7 +150,7 @@ button[type="submit"]:hover {
     margin-top: 2rem;
     padding: 1.5rem;
     border-radius: 8px;
-    background-color: var(--bg-color);
+    background-color: var(--input-bg);
     min-height: 50px;
     font-size: 1.1rem;
     line-height: 1.6;
