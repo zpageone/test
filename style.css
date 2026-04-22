@@ -97,11 +97,12 @@ header p {
 
 .select-row {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.8rem;
+    grid-template-columns: 1fr 1fr 1fr 1.5fr;
+    gap: 0.6rem;
 }
 
 select {
+    width: 100%;
     background-color: var(--input-bg);
     border: 1px solid var(--primary-color);
     border-radius: 8px;

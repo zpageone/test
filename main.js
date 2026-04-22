@@ -26,10 +26,27 @@ document.addEventListener('DOMContentLoaded', () => {
         const option = new Option(`${i}일`, i);
         selectDay.add(option);
     }
-    for (let i = 0; i <= 23; i++) {
-        const option = new Option(`${i}시`, i);
+    
+    const sajuHours = [
+        { name: "자시 (子時)", range: "23:30 ~ 01:30" },
+        { name: "축시 (丑時)", range: "01:30 ~ 03:30" },
+        { name: "인시 (寅時)", range: "03:30 ~ 05:30" },
+        { name: "묘시 (卯時)", range: "05:30 ~ 07:30" },
+        { name: "진시 (辰時)", range: "07:30 ~ 09:30" },
+        { name: "사시 (巳時)", range: "09:30 ~ 11:30" },
+        { name: "오시 (午時)", range: "11:30 ~ 13:30" },
+        { name: "미시 (未時)", range: "13:30 ~ 15:30" },
+        { name: "신시 (申時)", range: "15:30 ~ 17:30" },
+        { name: "유시 (酉時)", range: "17:30 ~ 19:30" },
+        { name: "술시 (戌時)", range: "19:30 ~ 21:30" },
+        { name: "해시 (亥時)", range: "21:30 ~ 23:30" }
+    ];
+
+    sajuHours.forEach((hour, index) => {
+        const option = new Option(`${hour.name} (${hour.range})`, index);
         selectHour.add(option);
-    }
+    });
+    selectHour.add(new Option("시간 모름", "unknown"));
 
     // Theme logic
     const currentTheme = localStorage.getItem('theme');
@@ -60,9 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Mock date string for generation
-        const birthdate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
-        const birthtime = `${hour.padStart(2, '0')}:00`;
+        // Use selected values for seed generation
+        const birthdate = `${year}-${month}-${day}`;
+        const birthtime = hour; // Can be index "0"-"11" or "unknown"
 
         const fortune = generateSajuFortune(name, birthdate, birthtime, calendarType);
         displayFortune(fortune);
@@ -90,15 +107,15 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
 
         const loveLuck = [
-            "인연운이 매우 길하여 미혼자라면 평생의 동반자를 만날 기회가 생기고, 기혼자라면 부부 사이가 더욱 돈독해질 운세입니다.",
+            "인연운이 매우 길하여 미혼자라면 평생의 동반자를 만날 기회가 생기고, 기혼자라면 부부 사이가 더욱 독독해질 운세입니다.",
             "자신의 매력이 돋보이는 '도화살'의 기운이 긍정적으로 작용합니다. 대인관계에서 인기를 얻고 사람들의 주목을 받게 될 것입니다.",
             "감정의 기복이 있을 수 있는 시기입니다. 상대방의 입장을 먼저 생각하는 배려가 깊은 관계를 유지하는 비결이 될 것입니다."
         ];
 
         // Seed generation for consistent results based on input
         const dateObj = new Date(birthdate);
-        const timeParts = birthtime.split(':');
-        const seed = name.length + dateObj.getFullYear() + dateObj.getMonth() + dateObj.getDate() + parseInt(timeParts[0]);
+        const hourSeed = birthtime === 'unknown' ? 99 : parseInt(birthtime);
+        const seed = name.length + dateObj.getFullYear() + dateObj.getMonth() + dateObj.getDate() + hourSeed;
 
         const getIdx = (arr, offset = 0) => (seed + offset) % arr.length;
 
