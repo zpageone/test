@@ -22,14 +22,25 @@
                     <label for="name">이름</label>
                     <input type="text" id="name" placeholder="이름을 입력하세요" required>
                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="birthdate">생년월일</label>
-                        <input type="date" id="birthdate" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="birthtime">태어난 시간</label>
-                        <input type="time" id="birthtime" required>
+                <div class="form-group">
+                    <label>생년월일 및 태어난 시간</label>
+                    <div class="select-row">
+                        <select id="birth-year" required>
+                            <option value="" disabled selected>년</option>
+                            <!-- Years will be populated by JS -->
+                        </select>
+                        <select id="birth-month" required>
+                            <option value="" disabled selected>월</option>
+                            <!-- Months will be populated by JS -->
+                        </select>
+                        <select id="birth-day" required>
+                            <option value="" disabled selected>일</option>
+                            <!-- Days will be populated by JS -->
+                        </select>
+                        <select id="birth-hour" required>
+                            <option value="" disabled selected>시</option>
+                            <!-- Hours will be populated by JS -->
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">

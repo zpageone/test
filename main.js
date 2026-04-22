@@ -2,11 +2,34 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('fortune-form');
     const nameInput = document.getElementById('name');
-    const birthdateInput = document.getElementById('birthdate');
     const resultDiv = document.getElementById('fortune-result');
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
     const body = document.body;
+
+    const selectYear = document.getElementById('birth-year');
+    const selectMonth = document.getElementById('birth-month');
+    const selectDay = document.getElementById('birth-day');
+    const selectHour = document.getElementById('birth-hour');
+
+    // Populate selects
+    const currentYear = new Date().getFullYear();
+    for (let i = currentYear; i >= 1930; i--) {
+        const option = new Option(`${i}년`, i);
+        selectYear.add(option);
+    }
+    for (let i = 1; i <= 12; i++) {
+        const option = new Option(`${i}월`, i);
+        selectMonth.add(option);
+    }
+    for (let i = 1; i <= 31; i++) {
+        const option = new Option(`${i}일`, i);
+        selectDay.add(option);
+    }
+    for (let i = 0; i <= 23; i++) {
+        const option = new Option(`${i}시`, i);
+        selectHour.add(option);
+    }
 
     // Theme logic
     const currentTheme = localStorage.getItem('theme');
@@ -26,14 +49,20 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
 
         const name = nameInput.value;
-        const birthdate = birthdateInput.value;
-        const birthtime = document.getElementById('birthtime').value;
+        const year = selectYear.value;
+        const month = selectMonth.value;
+        const day = selectDay.value;
+        const hour = selectHour.value;
         const calendarType = document.querySelector('input[name="calendar-type"]:checked').value;
 
-        if (!name || !birthdate || !birthtime) {
-            displayFortune("모든 항목을 입력해 주세요.");
+        if (!name || !year || !month || !day || !hour) {
+            displayFortune("모든 항목을 선택해 주세요.");
             return;
         }
+
+        // Mock date string for generation
+        const birthdate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+        const birthtime = `${hour.padStart(2, '0')}:00`;
 
         const fortune = generateSajuFortune(name, birthdate, birthtime, calendarType);
         displayFortune(fortune);
