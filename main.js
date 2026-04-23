@@ -152,16 +152,26 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.sub-page header p').style.display = 'none';
 
             resultDiv.innerHTML = `
-                <div class="result-container">
-                    <div class="result-text-box">
-                        <h3 style="font-size: 1.4rem;">${name}님의 연애 운명 분석</h3>
-                        <p style="text-align: left; margin-top: 1.5rem;">
-                            <strong>[총평]</strong> 당신의 사주에는 '온화한 불(火)'의 기운이 깃들어 있습니다. 주변 사람들을 끌어당기는 묘한 매력이 있네요.<br><br>
-                            <strong>[연애운]</strong> 올해 하반기, 특히 10월과 11월 사이에 강한 인연법이 들어와 있습니다. 가까운 지인보다는 새로운 모임이나 장소에서 만나는 사람과 깊은 관계로 발전할 가능성이 높습니다.<br><br>
-                            <strong>[결혼운]</strong> 30대 중반에 천생연분의 기운이 가장 강하게 들어옵니다. 상대방은 안정적인 직업군에 속하며, 당신의 마음을 편안하게 해주는 포용력이 넓은 사람일 것입니다.
+                <div class="result-container" style="animation: fadeIn 0.8s ease;">
+                    <div class="result-text-box" style="text-align: left; border-top: 4px solid var(--primary-purple);">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; font-family: 'Noto Serif KR', serif;">✨ ${name}님의 프리미엄 연애 운명지</h3>
+                        <p style="margin-bottom: 1.2rem; line-height: 1.8;">
+                            <strong>[타고난 연애 기운]</strong> ${name}님의 사주에는 따스한 봄볕 같은 온화한 기운이 깃들어 있어, 주변 사람들에게 편안함과 신뢰감을 주는 매력을 타고나셨습니다. 본인은 인지하지 못할 수 있으나, 은근히 이성을 끌어당기는 '도화'의 기운이 내재되어 있어 한 번 인연을 맺으면 상대방이 쉽게 잊지 못하는 깊은 여운을 남기는 스타일입니다.
+                        </p>
+                        <p style="margin-bottom: 1.2rem; line-height: 1.8;">
+                            <strong>[올해의 연애 흐름]</strong> 올해 하반기부터는 막혀있던 인연의 문이 활짝 열리는 '천희(天喜)'의 시기에 진입하게 됩니다. 특히 오는 10월부터 12월 사이에는 예상치 못한 장소에서 강한 설렘을 느낄 수 있는 귀인이 나타날 운세이며, 그분은 당신의 가치관을 깊이 이해해 주는 성숙한 성품을 지닌 사람일 확률이 매우 높습니다.
+                        </p>
+                        <p style="margin-bottom: 1.2rem; line-height: 1.8;">
+                            <strong>[운명적 배우자상]</strong> 당신과 합이 가장 잘 맞는 배우자는 금(金)의 기운을 가진 안정적이고 결단력 있는 사람입니다. 다소 보수적일 수 있으나 책임감이 강해 평생 당신을 든든하게 지켜줄 버팀목이 되어줄 것이며, 두 분이 함께한다면 자산의 축적은 물론 정서적인 풍요로움까지 모두 누릴 수 있는 '상생'의 관계가 될 것입니다.
+                        </p>
+                        <p style="margin-bottom: 1.2rem; line-height: 1.8;">
+                            <strong>[결혼운이 들어오는 시기]</strong> 가장 강력한 성혼의 기운은 앞으로 2년 뒤인 가을철에 집중되어 있습니다. 이 시기에는 주변의 축복 속에서 결실을 맺을 운세가 강하니, 조급해하기보다는 현재의 인연 하나하나에 정성을 다하며 스스로를 가꾸는 시간을 가진다면 반드시 최고의 결실을 얻게 될 것입니다.
+                        </p>
+                        <p style="line-height: 1.8; color: var(--primary-purple); font-weight: 600;">
+                            💡 ${name}님을 위한 조언: 당신의 진심은 언제나 상대에게 닿습니다. 자신을 믿고 당당하게 사랑을 표현하세요.
                         </p>
                     </div>
-                    <button class="retry-btn" onclick="location.reload()">다시 확인하기</button>
+                    <button class="retry-btn" onclick="location.reload()" style="margin-top: 1rem;">다시 확인하기</button>
                 </div>
             `;
             resultDiv.scrollIntoView({ behavior: 'smooth' });
