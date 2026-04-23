@@ -149,7 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const resultDiv = document.getElementById('fortune-result');
             
             fortuneForm.style.display = 'none';
-            document.querySelector('.sub-page header p').style.display = 'none';
+            const subTitle = document.querySelector('.sub-page-title');
+            if (subTitle) subTitle.style.display = 'none';
 
             resultDiv.innerHTML = `
                 <div class="result-container" style="animation: fadeIn 0.8s ease;">
