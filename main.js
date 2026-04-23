@@ -1,4 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- URL Parameter Handling (Dynamic Titles) ---
+    const urlParams = new URLSearchParams(window.location.search);
+    const type = urlParams.get('type');
+
+    if (type) {
+        const tarotTitle = document.getElementById('tarot-title');
+        const tarotDesc = document.getElementById('tarot-desc');
+        const sajuTitle = document.querySelector('.sub-page-title h1');
+        const sajuDesc = document.querySelector('.sub-page-title p');
+
+        if (type === 'reunion' && tarotTitle) {
+            tarotTitle.textContent = "재회운 시기 리포트";
+            tarotDesc.innerHTML = "전인연과의 재회 가능성과<br>연락이 올 확률이 가장 높은 시기를 점쳐봅니다.";
+        } else if (type === 'goldentime' && sajuTitle) {
+            sajuTitle.textContent = "연애 골든타임 계산기";
+            sajuDesc.textContent = "사주 데이터를 기반으로 당신의 연애운이 상승하는 피크 타임을 분석합니다.";
+        } else if (type === 'mbti' && sajuTitle) {
+            sajuTitle.textContent = "연애 MBTI 궁합 정밀 진단";
+            sajuDesc.textContent = "성격 유형과 명리학적 합을 결합하여 지독하게 얽힌 인연의 끝을 분석합니다.";
+        }
+    }
+
     // --- 1. Common UI: Modal Logic ---
     const modal = document.getElementById('method-modal');
     const keywordCards = document.querySelectorAll('.keyword-card');
