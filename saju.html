@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사주 보기 - 연애운 오라클</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Pretendard:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container sub-page">
+        <header>
+            <a href="index.html" class="back-link">← 메인으로</a>
+            <h1 class="main-title">정통 사주 오라클</h1>
+            <p class="sub-title">나의 평생 인연과 결혼운이 들어오는 시기를 확인하세요</p>
+        </header>
+
+        <main>
+            <form id="fortune-form">
+                <div class="form-group">
+                    <label for="name">이름</label>
+                    <input type="text" id="name" placeholder="이름을 입력하세요" required>
+                </div>
+                <div class="form-group">
+                    <label>생년월일 및 태어난 시간</label>
+                    <div class="select-row">
+                        <select id="birth-year" required>
+                            <option value="" disabled selected>년</option>
+                        </select>
+                        <select id="birth-month" required>
+                            <option value="" disabled selected>월</option>
+                        </select>
+                        <select id="birth-day" required>
+                            <option value="" disabled selected>일</option>
+                        </select>
+                        <select id="birth-hour" required>
+                            <option value="" disabled selected>시</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>양력/음력</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="calendar-type" value="solar" checked> 양력</label>
+                        <label><input type="radio" name="calendar-type" value="lunar"> 음력</label>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">나의 사주 풀이 보기</button>
+            </form>
+            <div id="fortune-result" aria-live="polite"></div>
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

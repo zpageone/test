@@ -1,79 +1,48 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fortune Teller</title>
+    <title>연애운 전문 - 타로 & 사주 오라클</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Pretendard:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
-        <span id="theme-icon">🌙</span>
-    </button>
     <div class="container">
         <header>
-            <h1>명리 사주 오라클</h1>
-            <p>당신의 태어난 시각에 숨겨진 운명의 지도를 확인하세요.</p>
+            <h1 class="main-title">당신의 연애, 안녕하신가요?</h1>
+            <p class="sub-title">30대 여성들을 위한 프라이빗 연애운 오라클</p>
         </header>
+
         <main>
-            <form id="fortune-form">
-                <div class="form-group">
-                    <label for="name">이름</label>
-                    <input type="text" id="name" placeholder="이름을 입력하세요" required>
+            <div class="service-buttons">
+                <a href="tarot.html" class="service-card tarot">
+                    <div class="card-icon">🃏</div>
+                    <h2>타로 보기</h2>
+                    <p>오늘의 연애운과 그 사람의 속마음</p>
+                </a>
+                <a href="saju.html" class="service-card saju">
+                    <div class="card-icon">☯️</div>
+                    <h2>사주 보기</h2>
+                    <p>나의 평생 인연과 결혼운이 들어오는 시기</p>
+                </a>
+            </div>
+
+            <section class="keywords-section">
+                <h3>인기 연애 키워드</h3>
+                <div class="keywords-container">
+                    <span class="keyword-tag">그 사람의 속마음</span>
+                    <span class="keyword-tag">연락운</span>
+                    <span class="keyword-tag">재회운</span>
+                    <span class="keyword-tag">3개월 내 연애운</span>
+                    <span class="keyword-tag">결혼운이 들어오는 시기</span>
+                    <span class="keyword-tag">나와 잘 맞는 배우자상</span>
                 </div>
-                <div class="form-group">
-                    <label>생년월일 및 태어난 시간</label>
-                    <div class="select-row">
-                        <select id="birth-year" required>
-                            <option value="" disabled selected>년</option>
-                            <!-- Years will be populated by JS -->
-                        </select>
-                        <select id="birth-month" required>
-                            <option value="" disabled selected>월</option>
-                            <!-- Months will be populated by JS -->
-                        </select>
-                        <select id="birth-day" required>
-                            <option value="" disabled selected>일</option>
-                            <!-- Days will be populated by JS -->
-                        </select>
-                        <select id="birth-hour" required>
-                            <option value="" disabled selected>시</option>
-                            <!-- Hours will be populated by JS -->
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>양력/음력</label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="calendar-type" value="solar" checked> 양력</label>
-                        <label><input type="radio" name="calendar-type" value="lunar"> 음력</label>
-                    </div>
-                </div>
-                <button type="submit">사주 풀이 보기</button>
-            </form>
-            <div id="fortune-result" aria-live="polite"></div>
+            </section>
         </main>
         
         <footer class="app-footer">
-            <button id="inquiry-toggle" class="inquiry-btn">제휴 문의하기</button>
-            <div id="inquiry-modal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h2>제휴 및 서비스 문의</h2>
-                    <form action="https://formspree.io/f/myklnvkg" method="POST" id="inquiry-form">
-                        <div class="form-group">
-                            <label for="email">이메일 주소</label>
-                            <input type="email" name="email" id="email" placeholder="example@email.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">문의 내용</label>
-                            <textarea name="message" id="message" rows="5" placeholder="문의하실 내용을 입력해주세요." required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">문의 보내기</button>
-                    </form>
-                </div>
-            </div>
+            <p>© 2026 Oracle of Love. All rights reserved.</p>
         </footer>
     </div>
     <script src="main.js"></script>
