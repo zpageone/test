@@ -3,46 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>연애운 전문 - 타로 & 사주 오라클</title>
+    <title>연애운 오라클 - 당신의 고민을 먼저 선택하세요</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Pretendard:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1 class="main-title">당신의 연애, 안녕하신가요?</h1>
-            <p class="sub-title">30대 여성들을 위한 프라이빗 연애운 오라클</p>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">Oracle<span>.</span></div>
+            <div class="header-icons">
+                <button class="icon-btn">🔍</button>
+                <button class="icon-btn">🔔</button>
+            </div>
         </header>
 
-        <main>
-            <div class="service-buttons">
-                <a href="tarot.html" class="service-card tarot">
-                    <div class="card-icon">🃏</div>
-                    <h2>타로 보기</h2>
-                    <p>오늘의 연애운과 그 사람의 속마음</p>
-                </a>
-                <a href="saju.html" class="service-card saju">
-                    <div class="card-icon">☯️</div>
-                    <h2>사주 보기</h2>
-                    <p>나의 평생 인연과 결혼운이 들어오는 시기</p>
-                </a>
-            </div>
+        <main class="content-area">
+            <section class="hero-section">
+                <h1>지금 어떤 고민이<br>가장 깊으신가요?</h1>
+                <p>2030 여성들이 가장 많이 찾는 연애 키워드</p>
+            </section>
 
-            <section class="keywords-section">
-                <h3>인기 연애 키워드</h3>
-                <div class="keywords-container">
-                    <span class="keyword-tag">그 사람의 속마음</span>
-                    <span class="keyword-tag">연락운</span>
-                    <span class="keyword-tag">재회운</span>
-                    <span class="keyword-tag">3개월 내 연애운</span>
-                    <span class="keyword-tag">결혼운이 들어오는 시기</span>
-                    <span class="keyword-tag">나와 잘 맞는 배우자상</span>
+            <!-- Keyword Card Grid -->
+            <section class="keyword-grid">
+                <div class="keyword-card" data-keyword="그 사람의 속마음">
+                    <span class="card-emoji">💭</span>
+                    <h3>그 사람의 속마음</h3>
+                    <p>나를 어떻게 생각하고 있을까?</p>
+                </div>
+                <div class="keyword-card" data-keyword="연락운/썸">
+                    <span class="card-emoji">📱</span>
+                    <h3>먼저 연락이 올까?</h3>
+                    <p>기다려도 될지, 먼저 해볼지</p>
+                </div>
+                <div class="keyword-card highlight" data-keyword="재회운">
+                    <span class="card-emoji">🕯️</span>
+                    <h3>지독한 재회운</h3>
+                    <p>끊어지지 않는 인연, 다시 만날까?</p>
+                </div>
+                <div class="keyword-card" data-keyword="3개월 내 연애운">
+                    <span class="card-emoji">✨</span>
+                    <h3>3개월 내 연애사</h3>
+                    <p>곧 다가올 설레는 사건들</p>
+                </div>
+                <div class="keyword-card" data-keyword="배우자상/결혼">
+                    <span class="card-emoji">💍</span>
+                    <h3>미래 배우자상</h3>
+                    <p>내가 결혼할 사람의 특징과 시기</p>
+                </div>
+                <div class="keyword-card" data-keyword="MBTI 궁합">
+                    <span class="card-emoji">🧬</span>
+                    <h3>지독한 인연 궁합</h3>
+                    <p>우리 둘의 성격과 운명적 궁합</p>
                 </div>
             </section>
         </main>
+
+        <!-- Method Selection Modal -->
+        <div id="method-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="selected-keyword" id="display-keyword">키워드</span>
+                    <h2>어떤 방식으로 풀이할까요?</h2>
+                </div>
+                <div class="method-options">
+                    <a href="tarot.html" class="method-btn tarot-btn">
+                        <span class="method-icon">🃏</span>
+                        <div class="method-text">
+                            <strong>타로 오라클</strong>
+                            <span>현재의 심리와 가까운 미래</span>
+                        </div>
+                    </a>
+                    <a href="saju.html" class="method-btn saju-btn">
+                        <span class="method-icon">☯️</span>
+                        <div class="method-text">
+                            <strong>정통 사주</strong>
+                            <span>타고난 운명과 시기 분석</span>
+                        </div>
+                    </a>
+                </div>
+                <button class="close-modal">다음에 할래요</button>
+            </div>
+        </div>
         
-        <footer class="app-footer">
-            <p>© 2026 Oracle of Love. All rights reserved.</p>
+        <footer class="bottom-nav">
+            <div class="bottom-item active">🏠<span>홈</span></div>
+            <div class="bottom-item">💖<span>연애운</span></div>
+            <div class="bottom-item">🌟<span>프리미엄</span></div>
+            <div class="bottom-item">👤<span>MY</span></div>
         </footer>
     </div>
     <script src="main.js"></script>
