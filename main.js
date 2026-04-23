@@ -28,11 +28,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardSpread = document.getElementById('card-spread');
     if (cardSpread) {
         const tarotResults = [
-            { name: "The Lovers (연인)", img: "https://upload.wikimedia.org/wikipedia/en/d/db/RWS_Tarot_06_Lovers.jpg", text: "상대방도 당신에게 강한 끌림을 느끼고 있습니다. 서로의 가치관이 일치하는 시기이며, 곧 기분 좋은 소식이 들려올 가능성이 높습니다." },
-            { name: "The Moon (달)", img: "https://upload.wikimedia.org/wikipedia/en/f/f0/RWS_Tarot_18_Moon.jpg", text: "상대방의 마음이 아직 갈팡질팡하고 있네요. 불안함이 앞서기보다는 시간을 두고 지켜보는 것이 좋습니다. 진실이 드러날 때까지 기다리세요." },
-            { name: "The Sun (태양)", img: "https://upload.wikimedia.org/wikipedia/en/1/17/RWS_Tarot_19_Sun.jpg", text: "매우 긍정적인 신호입니다! 상대방은 당신과 함께할 때 큰 행복을 느낍니다. 꾸밈없는 솔직한 모습이 최고의 무기가 될 것입니다." },
-            { name: "The Tower (탑)", img: "https://upload.wikimedia.org/wikipedia/en/5/53/RWS_Tarot_16_Tower.jpg", text: "관계에 큰 변화가 찾아올 수 있습니다. 예기치 못한 사건이 발생할 수 있으나, 이는 더 나은 관계를 위해 낡은 것을 깨뜨리는 과정입니다." },
-            { name: "The Star (별)", img: "https://upload.wikimedia.org/wikipedia/en/d/db/RWS_Tarot_17_Star.jpg", text: "희망적인 미래가 보입니다. 상대방은 당신을 동경하거나 이상형으로 생각하고 있을 확률이 높습니다. 서서히 마음이 열리고 있습니다." }
+            { 
+                name: "The Lovers (연인)", 
+                img: "https://upload.wikimedia.org/wikipedia/en/d/db/RWS_Tarot_06_Lovers.jpg", 
+                text: "상대방도 당신에게 강력한 연애적 끌림을 느끼고 있습니다. 현재 두 분의 운명적인 흐름이 정점에 도달했네요. 서로에 대한 신뢰를 바탕으로 솔직한 대화를 나눈다면 조만간 관계가 급격히 가까워질 것입니다. 곧 행복한 연애의 시작을 알리는 소식이 들려올 것입니다." 
+            },
+            { 
+                name: "The Moon (달)", 
+                img: "https://upload.wikimedia.org/wikipedia/en/f/f0/RWS_Tarot_18_Moon.jpg", 
+                text: "상대방의 마음이 안개 속에 있는 것처럼 불투명합니다. 본인 스스로도 자신의 감정을 확신하지 못해 갈팡질팡하고 있는 시기이군요. 지금은 섣부르게 다가가기보다 상대방의 마음이 정리될 때까지 조금 더 기다려주는 인내심이 필요합니다. 시간이 지나면 진실이 자연스럽게 드러날 것입니다." 
+            },
+            { 
+                name: "The Sun (태양)", 
+                img: "https://upload.wikimedia.org/wikipedia/en/1/17/RWS_Tarot_19_Sun.jpg", 
+                text: "축하드립니다! 당신은 상대방에게 아주 밝고 긍정적인 에너지를 주는 소중한 사람입니다. 상대방은 당신과 함께할 때 세상이 환해지는 기분을 느낍니다. 꾸밈없이 밝은 웃음이 최고의 무기가 될 것이며, 두 분의 관계는 앞으로도 매우 순탄하고 열정적으로 발전할 것입니다." 
+            },
+            { 
+                name: "The Tower (탑)", 
+                img: "https://upload.wikimedia.org/wikipedia/en/5/53/RWS_Tarot_16_Tower.jpg", 
+                text: "두 분의 관계에 예상치 못한 큰 변화가 찾아오고 있습니다. 다소 충격적인 사건이 발생할 수 있으나, 이는 기존의 잘못된 기반을 무너뜨리고 더 단단하고 진실된 관계로 나아가기 위한 정화 과정입니다. 당황하지 말고 변화를 겸허히 받아들이며 새롭게 다시 시작하려는 의지가 중요합니다." 
+            },
+            { 
+                name: "The Star (별)", 
+                img: "https://upload.wikimedia.org/wikipedia/en/d/db/RWS_Tarot_17_Star.jpg", 
+                text: "상대방은 당신을 동경하며 당신과의 미래를 꿈꾸고 있습니다. 당신은 상대방에게 있어 꿈에 그리던 '이상형'에 가깝습니다. 지금 당장 불같은 연애가 시작되지는 않더라도, 서서히 서로에게 스며들며 낭만적인 인연으로 이어질 운세입니다. 긍정적인 기대로 마음을 열어두세요." 
+            }
         ];
 
         // Generate 10 cards in a fan spread
@@ -72,16 +92,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 const resultName = document.getElementById('result-card-name');
                 const resultText = document.getElementById('result-interpretation');
                 
-                if (resultImg) {
-                    resultImg.src = result.img;
-                    resultImg.onload = () => {
-                        resultView.style.display = 'block';
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    };
-                }
-                
+                // Set content
+                if (resultImg) resultImg.src = result.img;
                 if (resultName) resultName.textContent = result.name;
                 if (resultText) resultText.textContent = result.text;
+                
+                // Show view immediately and scroll to top
+                if (resultView) {
+                    resultView.style.display = 'block';
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
                 
             }, 600);
         }
