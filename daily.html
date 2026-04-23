@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-450D0V16PR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-450D0V16PR');
+    </script>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "wg3avsd9uh");
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 띠별 운세 - Oracle 연애운</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8984759492882177"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-8984759492882177">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <a href="index.html" class="back-btn">←</a>
+            <div class="logo" onclick="location.href='index.html'" style="cursor:pointer">Oracle<span>.</span></div>
+            <div class="header-icons"></div>
+        </header>
+
+        <main class="content-area">
+            <section class="hero-section">
+                <h1>오늘의 띠별 운세</h1>
+                <p>당신의 태어난 년도를 선택하여<br>오늘의 행운을 확인하세요.</p>
+            </section>
+
+            <section class="input-section" style="padding: 0 1.5rem;">
+                <div class="form-group">
+                    <label for="birth-year-daily">태어난 년도</label>
+                    <select id="birth-year-daily" class="modern-select">
+                        <option value="" disabled selected>년도를 선택하세요</option>
+                        <!-- Years will be populated by JS -->
+                    </select>
+                </div>
+                <button id="view-daily-fortune" class="submit-btn" style="margin-top: 1rem;">오늘의 운세 보기</button>
+            </section>
+
+            <div id="daily-fortune-result" class="result-container" style="display: none;">
+                <!-- Result will be injected here -->
+            </div>
+
+            <!-- Zodiac Grid for Quick View -->
+            <section class="zodiac-section" style="margin-top: 3rem;">
+                <div class="section-header">
+                    <h3>십이간지 한눈에 보기</h3>
+                </div>
+                <div class="zodiac-grid">
+                    <div class="zodiac-item" data-zodiac="쥐"><span>🐭</span><p>쥐띠</p></div>
+                    <div class="zodiac-item" data-zodiac="소"><span>🐮</span><p>소띠</p></div>
+                    <div class="zodiac-item" data-zodiac="호랑이"><span>🐯</span><p>범띠</p></div>
+                    <div class="zodiac-item" data-zodiac="토끼"><span>🐰</span><p>토끼띠</p></div>
+                    <div class="zodiac-item" data-zodiac="용"><span>🐲</span><p>용띠</p></div>
+                    <div class="zodiac-item" data-zodiac="뱀"><span>🐍</span><p>뱀띠</p></div>
+                    <div class="zodiac-item" data-zodiac="말"><span>🐴</span><p>말띠</p></div>
+                    <div class="zodiac-item" data-zodiac="양"><span>🐑</span><p>양띠</p></div>
+                    <div class="zodiac-item" data-zodiac="원숭이"><span>🐵</span><p>원숭이띠</p></div>
+                    <div class="zodiac-item" data-zodiac="닭"><span>🐔</span><p>닭띠</p></div>
+                    <div class="zodiac-item" data-zodiac="개"><span>🐶</span><p>개띠</p></div>
+                    <div class="zodiac-item" data-zodiac="돼지"><span>🐷</span><p>돼지띠</p></div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="bottom-nav">
+            <div class="bottom-item" onclick="location.href='index.html'">🏠<span>홈</span></div>
+            <div class="bottom-item active" onclick="location.href='daily.html'">✨<span>운세</span></div>
+            <div class="bottom-item" onclick="location.href='tarot.html'">🃏<span>타로</span></div>
+            <div class="bottom-item" onclick="location.href='saju.html'">📅<span>사주</span></div>
+        </footer>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

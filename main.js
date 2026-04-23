@@ -200,4 +200,77 @@ document.addEventListener('DOMContentLoaded', () => {
             resultDiv.scrollIntoView({ behavior: 'smooth' });
         });
     }
+
+    // --- 4. Daily Zodiac Fortune (daily.html) ---
+    const dailyYearSelect = document.getElementById('birth-year-daily');
+    const viewDailyBtn = document.getElementById('view-daily-fortune');
+    const dailyResultDiv = document.getElementById('daily-fortune-result');
+
+    if (dailyYearSelect) {
+        const currentYear = new Date().getFullYear();
+        for (let y = currentYear; y >= 1950; y--) {
+            const opt = document.createElement('option');
+            opt.value = y; opt.textContent = `${y}년`;
+            dailyYearSelect.appendChild(opt);
+        }
+    }
+
+    if (viewDailyBtn) {
+        const zodiacSigns = ["쥐", "소", "호랑이", "토끼", "용", "뱀", "말", "양", "원숭이", "닭", "개", "돼지"];
+        const zodiacEmojis = ["🐭", "🐮", "🐯", "🐰", "🐲", "🐍", "🐴", "🐑", "🐵", "🐔", "🐶", "🐷"];
+        const fortuneTexts = [
+            "오늘은 뜻밖의 행운이 찾아올 수 있는 날입니다. 주변의 조언에 귀를 기울이세요.",
+            "새로운 시작을 하기에 좋은 기운이 들어와 있습니다. 자신감을 가지고 도전해 보세요.",
+            "금전운이 상승하는 시기입니다. 계획적인 소비를 한다면 더 큰 이득이 따를 것입니다.",
+            "인간관계에서 기쁨을 찾을 수 있는 날입니다. 오랜 친구에게 연락해 보는 건 어떨까요?",
+            "건강에 유의해야 하는 하루입니다. 충분한 휴식과 가벼운 운동이 에너지를 채워줄 것입니다.",
+            "창의적인 아이디어가 샘솟는 날입니다. 기록하는 습관이 미래의 큰 자산이 될 거예요.",
+            "차분하게 내실을 다지는 것이 중요한 날입니다. 서두르지 말고 천천히 나아가세요.",
+            "사랑하는 사람과 깊은 교감을 나눌 수 있는 따뜻한 하루가 예상됩니다.",
+            "노력한 만큼 결과가 나오는 정직한 운세입니다. 끝까지 포기하지 마세요.",
+            "말조심이 필요한 하루입니다. 상대방의 입장에서 한 번 더 생각하고 말하세요."
+        ];
+
+        viewDailyBtn.addEventListener('click', () => {
+            const year = dailyYearSelect.value;
+            if (!year) {
+                alert("태어난 년도를 선택해 주세요.");
+                return;
+            }
+
+            const zodiacIndex = (year - 4) % 12;
+            const myZodiac = zodiacSigns[zodiacIndex];
+            const myEmoji = zodiacEmojis[zodiacIndex];
+            
+            // Randomly select a fortune based on the date and year to keep it somewhat consistent per day
+            const daySeed = new Date().getDate();
+            const fortuneIndex = (parseInt(year) + daySeed) % fortuneTexts.length;
+            const todayFortune = fortuneTexts[fortuneIndex];
+
+            dailyResultDiv.innerHTML = `
+                <div class="result-text-box" style="margin-top: 2rem; border-top: 4px solid var(--accent-pink);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">${myEmoji}</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">${year}년생 ${myZodiac}띠 운세</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #333d4b;">
+                        ${todayFortune}
+                    </p>
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: #fff5f8; border-radius: 12px; font-size: 0.9rem; color: #ff5c8d;">
+                        💡 오늘의 행운의 컬러: <strong>${["핑크", "블루", "골드", "그린", "퍼플"][daySeed % 5]}</strong>
+                    </div>
+                </div>
+                <button class="retry-btn" onclick="location.reload()" style="margin-top: 1rem; background-color: var(--accent-pink);">다른 년도 확인하기</button>
+            `;
+            dailyResultDiv.style.display = 'block';
+            dailyResultDiv.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+    // Zodiac Grid items click
+    const zodiacItems = document.querySelectorAll('.zodiac-item');
+    zodiacItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const zodiac = item.getAttribute('data-zodiac');
+            alert(`${zodiac}띠의 상세 운세는 년도를 선택하시면 더욱 정확하게 확인하실 수 있습니다!`);
+        });
+    });
 });
