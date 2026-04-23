@@ -102,27 +102,44 @@ p { font-size: 0.95rem; color: var(--text-gray); }
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem 1rem;
-    min-height: 300px;
+    padding: 4rem 1rem;
+    min-height: 400px;
     position: relative;
     overflow-x: hidden;
+    perspective: 1000px;
 }
 
 .tarot-card-item {
     width: 100px;
-    height: 160px;
-    background: linear-gradient(135deg, #7048e8, #ae3ec9);
-    border-radius: 12px;
-    border: 3px solid white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    height: 165px;
+    background-color: #2c2c54;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 1px, transparent 1px),
+        linear-gradient(45deg, #4834d4 25%, transparent 25%, transparent 75%, #4834d4 75%, #4834d4),
+        linear-gradient(-45deg, #4834d4 25%, transparent 25%, transparent 75%, #4834d4 75%, #4834d4);
+    background-size: 20px 20px, 10px 10px, 10px 10px;
+    border-radius: 10px;
+    border: 4px solid #fff;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     cursor: pointer;
     transition: var(--transition);
     position: absolute;
     transform-origin: center bottom;
 }
 
+.tarot-card-item::after {
+    content: '✨';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: rgba(255,255,255,0.5);
+    font-size: 1.5rem;
+}
+
 .tarot-card-item:hover {
-    transform: translateY(-30px) scale(1.1) !important;
+    transform: translateY(-40px) scale(1.1) !important;
+    border-color: var(--primary-purple);
     z-index: 100;
 }
 
@@ -130,23 +147,36 @@ p { font-size: 0.95rem; color: var(--text-gray); }
 .result-container {
     padding: 2rem 1.5rem;
     text-align: center;
-    animation: fadeIn 0.5s ease;
+    animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.picked-card-reveal {
+    margin-bottom: 2rem;
 }
 
 .card-image-box {
-    width: 150px;
-    height: 240px;
-    margin: 0 auto 1.5rem;
-    background-color: #f1f3f5;
-    border-radius: 15px;
+    width: 180px;
+    height: 300px;
+    margin: 0 auto 1.2rem;
+    background-color: #fff;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border: 5px solid #fff;
 }
 
 .card-image-box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
+}
+
+#result-card-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-black);
+    font-family: 'Noto Serif KR', serif;
 }
 
 .result-text-box {

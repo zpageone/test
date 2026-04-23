@@ -56,20 +56,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Animation: Selection effect
             selectedElement.style.zIndex = '1000';
-            selectedElement.style.transform = 'translateY(-100px) rotate(0deg) scale(1.5)';
+            selectedElement.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            selectedElement.style.transform = 'translateY(-150px) rotateY(180deg) scale(1.6)';
             selectedElement.style.opacity = '0';
 
             setTimeout(() => {
-                cardSpread.style.display = 'none';
-                document.querySelector('.tarot-intro').style.display = 'none';
+                const cardSpread = document.getElementById('card-spread');
+                const tarotIntro = document.querySelector('.tarot-intro');
+                if (cardSpread) cardSpread.style.display = 'none';
+                if (tarotIntro) tarotIntro.style.display = 'none';
                 
                 const result = results[Math.floor(Math.random() * results.length)];
                 const resultView = document.getElementById('tarot-result-view');
-                document.getElementById('result-card-img').src = result.img;
-                document.getElementById('result-card-name').textContent = result.name;
-                document.getElementById('result-interpretation').textContent = result.text;
+                const resultImg = document.getElementById('result-card-img');
+                const resultName = document.getElementById('result-card-name');
+                const resultText = document.getElementById('result-interpretation');
                 
-                resultView.style.display = 'block';
+                if (resultImg) {
+                    resultImg.src = result.img;
+                    resultImg.onload = () => {
+                        resultView.style.display = 'block';
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    };
+                }
+                
+                if (resultName) resultName.textContent = result.name;
+                if (resultText) resultText.textContent = result.text;
+                
             }, 600);
         }
     }
