@@ -30,27 +30,27 @@ document.addEventListener('DOMContentLoaded', () => {
         const tarotResults = [
             { 
                 name: "The Lovers (연인)", 
-                img: "https://upload.wikimedia.org/wikipedia/en/d/db/RWS_Tarot_06_Lovers.jpg", 
+                img: "https://www.sacred-texts.com/tarot/pkt/img/ar06.jpg", 
                 text: "상대방도 당신에게 강력한 연애적 끌림을 느끼고 있습니다. 현재 두 분의 운명적인 흐름이 정점에 도달했네요. 서로에 대한 신뢰를 바탕으로 솔직한 대화를 나눈다면 조만간 관계가 급격히 가까워질 것입니다. 곧 행복한 연애의 시작을 알리는 소식이 들려올 것입니다." 
             },
             { 
                 name: "The Moon (달)", 
-                img: "https://upload.wikimedia.org/wikipedia/en/f/f0/RWS_Tarot_18_Moon.jpg", 
+                img: "https://www.sacred-texts.com/tarot/pkt/img/ar18.jpg", 
                 text: "상대방의 마음이 안개 속에 있는 것처럼 불투명합니다. 본인 스스로도 자신의 감정을 확신하지 못해 갈팡질팡하고 있는 시기이군요. 지금은 섣부르게 다가가기보다 상대방의 마음이 정리될 때까지 조금 더 기다려주는 인내심이 필요합니다. 시간이 지나면 진실이 자연스럽게 드러날 것입니다." 
             },
             { 
                 name: "The Sun (태양)", 
-                img: "https://upload.wikimedia.org/wikipedia/en/1/17/RWS_Tarot_19_Sun.jpg", 
+                img: "https://www.sacred-texts.com/tarot/pkt/img/ar19.jpg", 
                 text: "축하드립니다! 당신은 상대방에게 아주 밝고 긍정적인 에너지를 주는 소중한 사람입니다. 상대방은 당신과 함께할 때 세상이 환해지는 기분을 느낍니다. 꾸밈없이 밝은 웃음이 최고의 무기가 될 것이며, 두 분의 관계는 앞으로도 매우 순탄하고 열정적으로 발전할 것입니다." 
             },
             { 
                 name: "The Tower (탑)", 
-                img: "https://upload.wikimedia.org/wikipedia/en/5/53/RWS_Tarot_16_Tower.jpg", 
+                img: "https://www.sacred-texts.com/tarot/pkt/img/ar16.jpg", 
                 text: "두 분의 관계에 예상치 못한 큰 변화가 찾아오고 있습니다. 다소 충격적인 사건이 발생할 수 있으나, 이는 기존의 잘못된 기반을 무너뜨리고 더 단단하고 진실된 관계로 나아가기 위한 정화 과정입니다. 당황하지 말고 변화를 겸허히 받아들이며 새롭게 다시 시작하려는 의지가 중요합니다." 
             },
             { 
                 name: "The Star (별)", 
-                img: "https://upload.wikimedia.org/wikipedia/en/d/db/RWS_Tarot_17_Star.jpg", 
+                img: "https://www.sacred-texts.com/tarot/pkt/img/ar17.jpg", 
                 text: "상대방은 당신을 동경하며 당신과의 미래를 꿈꾸고 있습니다. 당신은 상대방에게 있어 꿈에 그리던 '이상형'에 가깝습니다. 지금 당장 불같은 연애가 시작되지는 않더라도, 서서히 서로에게 스며들며 낭만적인 인연으로 이어질 운세입니다. 긍정적인 기대로 마음을 열어두세요." 
             }
         ];
