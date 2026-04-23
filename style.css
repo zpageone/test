@@ -229,3 +229,24 @@ input[type="text"], select { width: 100%; padding: 1rem; border: 1px solid #e5e8
 .select-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
 .radio-group { display: flex; gap: 1rem; }
 .radio-group label { font-weight: 400; font-size: 0.9rem; display: flex; align-items: center; gap: 0.3rem; }
+
+/* Modern Close Button */
+.close-modal {
+    width: 100%;
+    padding: 1.1rem;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 16px;
+    color: #868e96;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 0.5rem;
+}
+
+.close-modal:hover {
+    background-color: #f1f3f5;
+    color: #495057;
+    border-color: #dee2e6;
+}
