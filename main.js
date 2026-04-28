@@ -296,8 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
             statusText.style.color = '#666';
 
             try {
-                // Use full URL to avoid issues when frontend and backend are on different ports in IDX environment
-                const response = await fetch('http://localhost:3000/api/send-report', {
+                const response = await fetch('/api/send-report', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
