@@ -71,6 +71,16 @@
                 <button type="submit" class="submit-btn">나의 사주 풀이 보기</button>
             </form>
             <div id="fortune-result" aria-live="polite"></div>
+            
+            <!-- Email Report Section (Initially Hidden) -->
+            <div id="saju-email-section" class="email-report-section" style="display: none; margin-top: 1rem; padding: 1.5rem; background: #f8f9fa; border-radius: 15px;">
+                <h4 style="margin-bottom: 1rem; color: var(--primary-purple);">결과 리포트 이메일로 받기</h4>
+                <div style="display: flex; gap: 10px;">
+                    <input type="email" id="user-email-saju" placeholder="이메일 주소를 입력하세요" style="flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                    <button id="send-email-btn-saju" style="padding: 12px 20px; background: var(--primary-purple); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">발송</button>
+                </div>
+                <p id="email-status-saju" style="margin-top: 10px; font-size: 0.85rem; color: #666; display: none;"></p>
+            </div>
         </main>
     </div>
     <script src="main.js"></script>

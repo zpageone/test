@@ -273,4 +273,100 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(`${zodiac}띠의 상세 운세는 년도를 선택하시면 더욱 정확하게 확인하실 수 있습니다!`);
         });
     });
+
+    // --- 5. Email Report Logic (Resend API Integration) ---
+    async function sendEmailReport(buttonId, emailInputId, statusId, reportData) {
+        const sendBtn = document.getElementById(buttonId);
+        const emailInput = document.getElementById(emailInputId);
+        const statusText = document.getElementById(statusId);
+
+        if (!sendBtn || !emailInput || !statusText) return;
+
+        sendBtn.addEventListener('click', async () => {
+            const email = emailInput.value.trim();
+            if (!email || !email.includes('@')) {
+                alert('올바른 이메일 주소를 입력해 주세요.');
+                return;
+            }
+
+            sendBtn.disabled = true;
+            sendBtn.textContent = '발송 중...';
+            statusText.textContent = '이메일을 보내는 중입니다...';
+            statusText.style.display = 'block';
+            statusText.style.color = '#666';
+
+            try {
+                const response = await fetch('/api/send-report', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email,
+                        ...reportData
+                    }),
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    statusText.textContent = '이메일이 성공적으로 발송되었습니다!';
+                    statusText.style.color = 'green';
+                    emailInput.value = '';
+                } else {
+                    statusText.textContent = `발송 실패: ${result.error || '알 수 없는 오류'}`;
+                    statusText.style.color = 'red';
+                }
+            } catch (error) {
+                console.error('Email send error:', error);
+                statusText.textContent = '서버 연결 오류가 발생했습니다.';
+                statusText.style.color = 'red';
+            } finally {
+                sendBtn.disabled = false;
+                sendBtn.textContent = '발송';
+            }
+        });
+    }
+
+    // Tarot Email Setup
+    const tarotResultView = document.getElementById('tarot-result-view');
+    if (tarotResultView) {
+        // We need to wait for the card to be picked to get the content
+        const observer = new MutationObserver(() => {
+            if (tarotResultView.style.display === 'block') {
+                const title = document.getElementById('tarot-title')?.textContent || '타로 결과';
+                const cardName = document.getElementById('result-card-name')?.textContent;
+                const interpretation = document.getElementById('result-interpretation')?.textContent;
+                
+                sendEmailReport('send-email-btn', 'user-email', 'email-status', {
+                    reportTitle: title,
+                    name: '고객',
+                    reportContent: `선택하신 카드: ${cardName}\n\n해석:\n${interpretation}`
+                });
+                observer.disconnect(); // Only setup once
+            }
+        });
+        observer.observe(tarotResultView, { attributes: true, attributeFilter: ['style'] });
+    }
+
+    // Saju Email Setup
+    const fortuneResult = document.getElementById('fortune-result');
+    const sajuEmailSection = document.getElementById('saju-email-section');
+    if (fortuneResult && sajuEmailSection) {
+        const observer = new MutationObserver(() => {
+            if (fortuneResult.innerHTML.trim() !== '') {
+                sajuEmailSection.style.display = 'block';
+                const name = document.getElementById('name').value || '고객';
+                const content = fortuneResult.innerText;
+                
+                sendEmailReport('send-email-btn-saju', 'user-email-saju', 'email-status-saju', {
+                    reportTitle: '정통 사주 풀이',
+                    name: name,
+                    reportContent: content
+                });
+                observer.disconnect();
+            }
+        });
+        observer.observe(fortuneResult, { childList: true });
+    }
 });

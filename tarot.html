@@ -57,6 +57,17 @@
                     <h3>연애운 해석</h3>
                     <p id="result-interpretation">해석 내용이 여기에 표시됩니다.</p>
                 </div>
+
+                <!-- Email Report Section -->
+                <div class="email-report-section" style="margin-top: 2rem; padding: 1.5rem; background: #f8f9fa; border-radius: 15px;">
+                    <h4 style="margin-bottom: 1rem; color: var(--primary-purple);">결과 리포트 이메일로 받기</h4>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="email" id="user-email" placeholder="이메일 주소를 입력하세요" style="flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                        <button id="send-email-btn" style="padding: 12px 20px; background: var(--primary-purple); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">발송</button>
+                    </div>
+                    <p id="email-status" style="margin-top: 10px; font-size: 0.85rem; color: #666; display: none;"></p>
+                </div>
+
                 <button class="retry-btn" onclick="location.reload()">다시 고르기</button>
             </div>
         </main>
