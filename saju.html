@@ -19,7 +19,7 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>사주 보기 - 연애운 오라클</title>
+    <title>사주 보기 - Saju Oracle</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Pretendard:wght@300;400;600&display=swap" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8984759492882177"
@@ -31,24 +31,26 @@
         <header class="app-header">
             <a href="index.html" class="back-btn">←</a>
             <div class="logo">Saju<span>.</span></div>
-            <div class="header-icons"></div>
+            <div class="header-icons">
+                <button class="icon-btn" id="lang-toggle">🌐 EN</button>
+            </div>
         </header>
 
         <main>
             <div class="sub-page-title" style="text-align: center; margin-bottom: 2rem;">
-                <h1 class="main-title">정통 사주 오라클</h1>
-                <p class="sub-title">나의 평생 인연과 결혼운이 들어오는 시기를 확인하세요</p>
+                <h1 class="main-title" data-i18n="saju.title">정통 사주 오라클</h1>
+                <p class="sub-title" data-i18n="saju.subtitle">나의 평생 인연과 결혼운이 들어오는 시기를 확인하세요</p>
             </div>
             <form id="fortune-form">
                 <div class="form-group">
-                    <label for="name">이름</label>
-                    <input type="text" id="name" placeholder="이름을 입력하세요" required>
+                    <label for="name" data-i18n="saju.name_label">이름</label>
+                    <input type="text" id="name" placeholder="이름을 입력하세요" required data-i18n="[placeholder]saju.name_placeholder">
                 </div>
                 <div class="form-group">
-                    <label>생년월일 및 태어난 시간</label>
+                    <label data-i18n="saju.birth_label">생년월일 및 태어난 시간</label>
                     <div class="select-row">
                         <select id="birth-year" required>
-                            <option value="" disabled selected>년</option>
+                            <option value="" disabled selected data-i18n="[text]daily.year_placeholder">년</option>
                         </select>
                         <select id="birth-month" required>
                             <option value="" disabled selected>월</option>
@@ -62,27 +64,28 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>양력/음력</label>
+                    <label data-i18n="saju.calendar_label">양력/음력</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="calendar-type" value="solar" checked> 양력</label>
-                        <label><input type="radio" name="calendar-type" value="lunar"> 음력</label>
+                        <label><input type="radio" name="calendar-type" value="solar" checked> <span data-i18n="saju.solar">양력</span></label>
+                        <label><input type="radio" name="calendar-type" value="lunar"> <span data-i18n="saju.lunar">음력</span></label>
                     </div>
                 </div>
-                <button type="submit" class="submit-btn">나의 사주 풀이 보기</button>
+                <button type="submit" class="submit-btn" data-i18n="saju.submit">나의 사주 풀이 보기</button>
             </form>
             <div id="fortune-result" aria-live="polite"></div>
             
             <!-- Email Report Section (Initially Hidden) -->
             <div id="saju-email-section" class="email-report-section" style="display: none; margin-top: 1rem; padding: 1.5rem; background: #f8f9fa; border-radius: 15px;">
-                <h4 style="margin-bottom: 1rem; color: var(--primary-purple);">결과 리포트 이메일로 받기</h4>
+                <h4 style="margin-bottom: 1rem; color: var(--primary-purple);" data-i18n="email.title">결과 리포트 이메일로 받기</h4>
                 <div style="display: flex; gap: 10px;">
-                    <input type="email" id="user-email-saju" placeholder="이메일 주소를 입력하세요" style="flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
-                    <button id="send-email-btn-saju" style="padding: 12px 20px; background: var(--primary-purple); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">발송</button>
+                    <input type="email" id="user-email-saju" placeholder="이메일 주소를 입력하세요" style="flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px;" data-i18n="[placeholder]email.placeholder">
+                    <button id="send-email-btn-saju" style="padding: 12px 20px; background: var(--primary-purple); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;" data-i18n="email.button">발송</button>
                 </div>
                 <p id="email-status-saju" style="margin-top: 10px; font-size: 0.85rem; color: #666; display: none;"></p>
             </div>
         </main>
     </div>
+    <script src="locales.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
