@@ -296,7 +296,11 @@ document.addEventListener('DOMContentLoaded', () => {
             statusText.style.color = '#666';
 
             try {
-                const response = await fetch('/api/send-report', {
+                // Check if we are in local development (localhost) or production (Cloudflare Pages)
+                const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+                const apiUrl = isLocal ? 'http://localhost:3000/api/send-report' : '/api/send-report';
+
+                const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
